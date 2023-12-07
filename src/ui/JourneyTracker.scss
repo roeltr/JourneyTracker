@@ -1,0 +1,83 @@
+// background-color: color-mix(in srgb, #1f4e79 100%, white);
+
+$lightColor: #adebee;
+$darkColor: #18c6cd;
+
+#journeytracker-container {
+    width: 100%;
+    height: 50px;
+    position: relative;
+
+    #bar-container {
+        position: relative;
+        top: 28px;
+        height: 12px;
+        overflow: auto;
+        background-color: #e1e1e1;
+
+        .journey-progress-bar {
+            height: 12px;
+            position: absolute;
+        }
+    }
+
+    .lighter-progress-color {
+        background-color: $lightColor;
+        z-index: 1;
+    }
+
+    .darker-progress-color {
+        background-color: $darkColor;
+        z-index: 0;
+    }
+
+    #current-progress-marker {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $darkColor;
+    }
+
+    .current-goal-marker {
+        position: relative;
+        top: -12px !important;
+        text-align: center;
+        width: 20px;
+        height: 40px;
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        z-index: 2;
+
+        &::after {
+            content: "";
+            background: black;
+            width: 3px;
+            height: 16px;
+            display: block;
+            margin-top: 2px;
+        }
+    }
+    .current-goal-reached {
+        &.current-goal-marker::after {
+            background: $darkColor;
+        }
+        &::before {
+            color: $darkColor;
+        }
+    }
+    ::before {
+        color: black;
+    }
+    #benchmark-marker {
+        position: absolute;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: #146FF4;
+    }
+}
