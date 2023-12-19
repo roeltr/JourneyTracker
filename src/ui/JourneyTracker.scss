@@ -1,83 +1,128 @@
-// background-color: color-mix(in srgb, #1f4e79 100%, white);
-
 $lightColor: #adebee;
 $darkColor: #18c6cd;
 
-#journeytracker-container {
-    width: 100%;
-    height: 50px;
+#journeytracker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 83px;
     position: relative;
-
-    #bar-container {
-        position: relative;
-        top: 28px;
-        height: 12px;
-        overflow: auto;
-        background-color: #e1e1e1;
-
-        .journey-progress-bar {
-            height: 12px;
-            position: absolute;
+    
+    &.on-top {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        align-content: center;
+        padding-bottom: 28px;
+    }
+    
+    .start-icon,
+    .end-icon {
+        font-size: 20px;
+        margin: 4px;
+        &.alongside {
+            flex-direction: row;
+            align-items: center;
+        }
+        &.on-top {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
     }
 
-    .lighter-progress-color {
-        background-color: $lightColor;
-        z-index: 1;
-    }
-
-    .darker-progress-color {
-        background-color: $darkColor;
-        z-index: 0;
-    }
-
-    #current-progress-marker {
-        position: absolute;
-        bottom: 0;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid $darkColor;
-    }
-
-    .current-goal-marker {
-        position: relative;
-        top: -12px !important;
-        text-align: center;
-        width: 20px;
-        height: 40px;
-        display: flex !important;
-        align-items: center;
-        justify-content: flex-end;
-        flex-direction: column;
-        z-index: 2;
-
-        &::after {
-            content: "";
-            background: black;
-            width: 3px;
-            height: 16px;
-            display: block;
-            margin-top: 2px;
-        }
-    }
-    .current-goal-reached {
-        &.current-goal-marker::after {
-            background: $darkColor;
-        }
-        &::before {
-            color: $darkColor;
-        }
-    }
-    ::before {
-        color: black;
-    }
-    #benchmark-marker {
-        position: absolute;
+    .glyphicon {
         top: 0;
-        width: 1px;
-        height: 100%;
-        background-color: #146FF4;
+    }
+
+    #content-container {
+        position: relative;
+        height: inherit;
+        width: 100%;
+        height: max-content;
+
+        &.on-top {
+            order: 2;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #bar-container {
+            position: relative;
+            height: 12px;
+            overflow: auto;
+            background-color: #e1e1e1;
+
+            .journey-progress-bar {
+                height: 12px;
+                position: absolute;
+            }
+        }
+
+        .lighter-progress-color {
+            background-color: $lightColor;
+            z-index: 1;
+        }
+
+        .darker-progress-color {
+            background-color: $darkColor;
+            z-index: 0;
+            &.on-top {
+                z-index: 2;
+            }
+        }
+        div[class^="marker-container"] {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateX(-50%);
+            font-size: 12px;
+            top: 0;
+            z-index: 3;
+            
+            &.above {
+                flex-direction: column-reverse;
+                top: unset;
+                bottom: 0;
+            }
+
+            &::before {
+                content: "";
+                width: 1px;
+                height: 12px;
+            }
+
+            &.show-line {
+                &::before {
+                    content: "";
+                    width: 1px;
+                    height: 12px;
+                    background-color: black;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            .marker {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 18px;
+            }
+
+            &.reached {
+                &::before {
+                    background-color: $darkColor;
+                }
+                    .marker {
+                        &::before{
+                        color: $darkColor;
+                    }
+                }
+            }
+
+        }
     }
 }
