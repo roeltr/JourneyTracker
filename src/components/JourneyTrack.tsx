@@ -13,31 +13,30 @@ export interface IconInternalProps {
 
 // Mendix internal script for handeling the rendering of WebIcon variants with additional line option
 export const IconInternal = ({
-  key,
-  icon,
-  className = "",
-  style,
-  fallback
+    key,
+    icon,
+    className = "",
+    style,
+    fallback
 }: IconInternalProps): ReactElement | null => {
-  const commonProps = { key, style };
+    const commonProps = { key, style };
 
-  if (icon?.type === "glyph") {
-      return <span {...commonProps} className={classNames("glyphicon", icon.iconClass, className)} aria-hidden />;
-  }
+    if (icon?.type === "glyph") {
+        return <span {...commonProps} className={classNames("glyphicon", icon.iconClass, className)} aria-hidden />;
+    }
 
-  if (icon?.type === "image") {
-      return <img {...commonProps} src={icon.iconUrl} className={className} aria-hidden alt="" />;
-  }
+    if (icon?.type === "image") {
+        return <img {...commonProps} src={icon.iconUrl} className={className} aria-hidden alt="" />;
+    }
 
-  if (icon?.type === "icon") {
-      return <span {...commonProps} className={classNames(className, icon.iconClass)} aria-hidden />;
-  }
+    if (icon?.type === "icon") {
+        return <span {...commonProps} className={classNames(className, icon.iconClass)} aria-hidden />;
+    }
 
-  return fallback || null;
+    return fallback || null;
 };
 
 IconInternal.displayName = "IconInternal";
-
 
 export function convertMarker(marker: MarkerListType) {
     const { markerName, showMarkerName, markerIcon, markerValue, markerAbove, addMarkerLine } = marker;
@@ -120,7 +119,6 @@ export function JourneyTrack({
             )}
 
             <div id="content-container" className={`${alongSideOrOntop}`}>
-
                 {/* Previous progress bar */}
                 <div id="bar-container">
                     <div

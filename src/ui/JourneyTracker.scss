@@ -7,7 +7,7 @@ $darkColor: #18c6cd;
     align-items: center;
     height: 83px;
     position: relative;
-    
+
     &.on-top {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -15,7 +15,7 @@ $darkColor: #18c6cd;
         align-content: center;
         padding-bottom: 28px;
     }
-    
+
     .start-icon,
     .end-icon {
         font-size: 20px;
@@ -71,6 +71,7 @@ $darkColor: #18c6cd;
                 z-index: 2;
             }
         }
+        
         div[class^="marker-container"] {
             position: absolute;
             display: flex;
@@ -80,7 +81,7 @@ $darkColor: #18c6cd;
             font-size: 12px;
             top: 0;
             z-index: 3;
-            
+
             &.above {
                 flex-direction: column-reverse;
                 top: unset;
@@ -116,13 +117,12 @@ $darkColor: #18c6cd;
                 &::before {
                     background-color: $darkColor;
                 }
-                    .marker {
-                        &::before{
+                .marker {
+                    &::before {
                         color: $darkColor;
                     }
                 }
             }
-
         }
     }
 }
