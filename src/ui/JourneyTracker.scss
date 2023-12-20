@@ -1,5 +1,5 @@
-$lightColor: #adebee;
-$darkColor: #18c6cd;
+$light-color: #adebee;
+$dark-color: #18c6cd;
 
 #journeytracker {
     display: flex;
@@ -11,7 +11,6 @@ $darkColor: #18c6cd;
     &.on-top {
         flex-wrap: wrap;
         justify-content: space-between;
-        flex-direction: row;
         align-content: center;
         padding-bottom: 28px;
     }
@@ -20,12 +19,13 @@ $darkColor: #18c6cd;
     .end-icon {
         font-size: 20px;
         margin: 4px;
-        &.alongside {
+
+        &.alongside, &.on-top {
             flex-direction: row;
             align-items: center;
         }
+
         &.on-top {
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
         }
@@ -37,7 +37,6 @@ $darkColor: #18c6cd;
 
     #content-container {
         position: relative;
-        height: inherit;
         width: 100%;
         height: max-content;
 
@@ -60,18 +59,19 @@ $darkColor: #18c6cd;
         }
 
         .lighter-progress-color {
-            background-color: $lightColor;
+            background-color: $light-color;
             z-index: 1;
         }
 
         .darker-progress-color {
-            background-color: $darkColor;
+            background-color: $dark-color;
             z-index: 0;
+
             &.on-top {
                 z-index: 2;
             }
         }
-        
+
         div[class^="marker-container"] {
             position: absolute;
             display: flex;
@@ -94,15 +94,13 @@ $darkColor: #18c6cd;
                 height: 12px;
             }
 
-            &.show-line {
-                &::before {
-                    content: "";
-                    width: 1px;
-                    height: 12px;
-                    background-color: black;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
+            &.show-line::before {
+                content: "";
+                width: 1px;
+                height: 12px;
+                background-color: black;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .marker {
@@ -115,11 +113,11 @@ $darkColor: #18c6cd;
 
             &.reached {
                 &::before {
-                    background-color: $darkColor;
+                    background-color: $dark-color;
                 }
                 .marker {
                     &::before {
-                        color: $darkColor;
+                        color: $dark-color;
                     }
                 }
             }
