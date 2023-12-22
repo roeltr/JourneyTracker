@@ -59,7 +59,7 @@
                 <description/>
                 <properties>
                     <propertyGroup caption="Markers">
-                        <property key="markerName" type="attribute">
+                        <property key="markerName" type="attribute" required="false">
                             <caption>Marker name</caption>
                             <description/>
                             <attributeTypes>

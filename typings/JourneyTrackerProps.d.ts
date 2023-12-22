@@ -8,7 +8,7 @@ import { DynamicValue, EditableValue, WebIcon } from "mendix";
 import { Big } from "big.js";
 
 export interface MarkerListType {
-    markerName: EditableValue<string>;
+    markerName?: EditableValue<string>;
     showMarkerName: boolean;
     reachedHighlight: boolean;
     markerIcon?: DynamicValue<WebIcon>;
