@@ -54,7 +54,7 @@
             </propertyGroup>
         </propertyGroup>
         <propertyGroup caption="Markers">
-            <property key="markerList" type="object" isList="true">
+            <property key="markerList" type="object" isList="true" required="false">
                 <caption>Markers</caption>
                 <description/>
                 <properties>

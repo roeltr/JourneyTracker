@@ -88,8 +88,8 @@ export function JourneyTrack({
                     const markerContainerClasses = classNames(
                         `marker-container-${index}`,
                         { above: marker.markerAbove },
-                        { "show-line": marker.addMarkerLine || marker.markerIcon === undefined }, // Add "show-line" if markerIcon is undefined
-                        { reached: currentValue >= marker.markerValue }
+                        { "show-line": marker.addMarkerLine || marker.markerIcon === undefined },
+                        { reached: marker.reachedHighlight === true && currentValue >= marker.markerValue }
                     );
 
                     const markerContainerStyle = {
