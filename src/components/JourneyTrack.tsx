@@ -29,6 +29,9 @@ export function JourneyTrack({
     className,
     markerList
 }: JourneyTrackProps): ReactElement {
+    // Prevent NaN
+    previousValue = isNaN(previousValue) ? 0 : previousValue;
+
     // Calculate widths for progress bars
     const previousWidth = (previousValue / maxValue) * 100;
     const currentWidth = (currentValue / maxValue) * 100;
@@ -67,8 +70,8 @@ export function JourneyTrack({
             )}
 
             <div id="content-container" className={`${alongSideOrOntop}`}>
-                {/* Previous progress bar */}
                 <div id="bar-container">
+                    {/* Previous progress bar */}
                     <div
                         id="previous-progress"
                         className={`journey-progress-bar ${previousBarClass}`}

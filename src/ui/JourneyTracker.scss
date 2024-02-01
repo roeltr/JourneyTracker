@@ -110,11 +110,12 @@ $dark-color: #18c6cd;
                 align-items: center;
                 font-size: 18px;
             }
-
-            &.reached {
+            &.show-line.reached {
                 &::before {
                     background-color: $dark-color;
                 }
+            }
+            &.reached {
                 .marker {
                     &::before {
                         color: $dark-color;
