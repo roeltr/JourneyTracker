@@ -7,10 +7,12 @@ import { CSSProperties } from "react";
 import { DynamicValue, EditableValue, WebIcon } from "mendix";
 import { Big } from "big.js";
 
+export type HighLightEnum = "never" | "whenReached" | "always";
+
 export interface MarkerListType {
-    markerName?: EditableValue<string>;
+    markerName?: DynamicValue<string>;
     showMarkerName: boolean;
-    reachedHighlight: boolean;
+    highLight: HighLightEnum;
     markerIcon?: DynamicValue<WebIcon>;
     addMarkerLine: boolean;
     markerAbove: boolean;
@@ -20,7 +22,7 @@ export interface MarkerListType {
 export interface MarkerListPreviewType {
     markerName: string;
     showMarkerName: boolean;
-    reachedHighlight: boolean;
+    highLight: HighLightEnum;
     markerIcon: { type: "glyph"; iconClass: string; } | { type: "image"; imageUrl: string; iconUrl: string; } | { type: "icon"; iconClass: string; } | undefined;
     addMarkerLine: boolean;
     markerAbove: boolean;

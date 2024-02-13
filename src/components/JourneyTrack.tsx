@@ -92,7 +92,7 @@ export function JourneyTrack({
                         `marker-container-${index}`,
                         { above: marker.markerAbove },
                         { "show-line": marker.addMarkerLine || marker.markerIcon === undefined },
-                        { reached: marker.reachedHighlight === true && currentValue >= marker.markerValue }
+                        { reached: (marker.highLight === "whenReached" && currentValue >= marker.markerValue) || marker.highLight === "always"}
                     );
 
                     const markerContainerStyle = {
@@ -110,7 +110,7 @@ export function JourneyTrack({
                                     fallback: <div />
                                 })
                             )}
-                            {marker.showMarkerName && <span key={`name-${index}`}>{marker.markerName}</span>}
+                            {marker.showMarkerName && <span className='marker-name' key={`name-${index}`}>{marker.markerName}</span>}
                         </div>
                     );
                 })}

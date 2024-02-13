@@ -1,5 +1,5 @@
 import { WebIcon } from "mendix";
-import { MarkerListType } from "../../typings/JourneyTrackerProps";
+import { HighLightEnum, MarkerListType } from "../../typings/JourneyTrackerProps";
 
 export interface ConvertedMarker {
     markerName: string;
@@ -8,15 +8,15 @@ export interface ConvertedMarker {
     markerValue: number;
     markerAbove: boolean;
     addMarkerLine: boolean;
-    reachedHighlight: boolean;
+    highLight: HighLightEnum;
 }
 
 export function convertMarker(marker: MarkerListType): ConvertedMarker {
-    const { markerName, showMarkerName, reachedHighlight, markerIcon, markerValue, markerAbove, addMarkerLine } = marker;
+    const { markerName, showMarkerName, highLight, markerIcon, markerValue, markerAbove, addMarkerLine } = marker;
     return {
         markerName: markerName?.value || "",
         showMarkerName: Boolean(showMarkerName),
-        reachedHighlight: Boolean(reachedHighlight),
+        highLight: highLight,
         markerIcon: markerIcon?.value,
         markerValue: Number(markerValue?.value) || 0,
         markerAbove: Boolean(markerAbove),

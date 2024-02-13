@@ -59,20 +59,23 @@
                 <description/>
                 <properties>
                     <propertyGroup caption="Markers">
-                        <property key="markerName" type="attribute" required="false">
+                        <property key="markerName" type="expression" required="false">
                             <caption>Marker name</caption>
                             <description/>
-                            <attributeTypes>
-                                <attributeType name="String" />
-                            </attributeTypes>
+                            <returnType type="String" />
                         </property>
                         <property key="showMarkerName" type="boolean" defaultValue="false">
                             <caption>Show marker name</caption>
                             <description/>
                         </property>
-                        <property key="reachedHighlight" type="boolean" defaultValue="false">
-                            <caption>Highlight reached</caption>
+                        <property key="highLight" type="enumeration" defaultValue="never">
+                            <caption>Highlight</caption>
                             <description>Change color when marker value is reached</description>
+                            <enumerationValues>
+                                <enumerationValue key="never">Never</enumerationValue>
+                                <enumerationValue key="whenReached">When reached</enumerationValue>
+                                <enumerationValue key="always">Always</enumerationValue>
+                            </enumerationValues>
                         </property>
                         <property key="markerIcon" type="icon" required="false">
                             <caption>Marker icon</caption>

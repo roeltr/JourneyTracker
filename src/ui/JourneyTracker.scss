@@ -109,6 +109,9 @@ $dark-color: #18c6cd;
                 flex-direction: column;
                 align-items: center;
                 font-size: 18px;
+                .marker-name {
+                    white-space: nowrap;
+                }
             }
             &.show-line.reached {
                 &::before {
